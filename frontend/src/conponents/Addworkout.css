@@ -1,0 +1,9 @@
+input .error{
+    outline-color:red ;
+}
+div .error{
+    margin-top: 10px;
+    border: 1px solid red;
+    padding: 10px;
+    text-align: center;
+}
