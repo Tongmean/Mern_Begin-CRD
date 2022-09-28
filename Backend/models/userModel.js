@@ -3,14 +3,17 @@ const mongoose = require('mongoose')
 //INvoke Schima
 const Schema = mongoose.Schema
 
-const userSchema = new Schema{
+const userSchema = new Schema({
     email:{
-        type: email,
+        type: String,
         required: true,
         unique: true
     },
     password:{
-        type:password,
+        type: String,
+        required: true
         
     }
-}
+}, {timestamps: true})
+
+module.exports = mongoose.model('User',userSchema)

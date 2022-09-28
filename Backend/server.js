@@ -5,6 +5,7 @@ const app = express();
 const port = process.env.PORT||8000;
 //Import Route module
 const workoutRoutes = require('./routes/workouts')
+const userRouter = require('./routes/user')
 // Call mongoose
 const mongoose = require('mongoose')
 require('dotenv').config()
@@ -21,6 +22,7 @@ app.use(express.json())
 
 // Route form seperate files
 app.use('/api/workouts', workoutRoutes)
+app.use('/api/user', userRouter)
 //route in the same file
 // app.get('/',(req, res)=>{
 //     res.json({"meg":"welcome"})
