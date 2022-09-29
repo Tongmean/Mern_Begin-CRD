@@ -11,6 +11,10 @@ const {
     UpdateWortOut
 
 } = require('../controler/workoutController')
+const requireAuth = require('../middleware/requireAuth')
+
+
+router.use(requireAuth)
 //Get all workout
 router.get('/', getworkouts);
 

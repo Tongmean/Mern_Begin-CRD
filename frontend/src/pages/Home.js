@@ -1,5 +1,4 @@
 import React from 'react'
-import { Navbar } from '../conponents/Navbar'
 import { useEffect } from 'react'
 import { useWorkoutsContext } from '../Hook/useWorkoutContext'
 import './Home.css'
@@ -35,7 +34,6 @@ const Home = () => {
     }
   return (
     <div >
-        <Navbar/>
         <div className='row container-fluid'>
             <div className='col-xl-7 col-lg-7 col-md-12 col-sm-12'>
                 <div>
