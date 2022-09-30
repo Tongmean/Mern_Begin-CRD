@@ -3,13 +3,19 @@ import { useEffect } from 'react'
 import { useWorkoutsContext } from '../Hook/useWorkoutContext'
 import './Home.css'
 import AddWorkout from '../conponents/AddWorkout'
+import { useAuthContext } from '../Hook/useAuthContext'
 const Home = () => {
     //Local hook
     //const [workouts, setWorkouts] = useState(null)
+    const { user } = useAuthContext()
     const {workouts, dispatch} = useWorkoutsContext()
     useEffect(()=>{
         const fetchworkuts = async () => {
-            const response = await fetch("http://localhost:8000/api/workouts")
+            const response = await fetch("http://localhost:8000/api/workouts", {
+                headers:{
+                    'Authorization': `Bearer ${user.token}`
+                }
+            })
             const json = await response.json()
 
             if (response.ok){
@@ -17,14 +23,23 @@ const Home = () => {
                 dispatch({type: 'SET_WORKOUTS', payload: json})
             }
         }
-        fetchworkuts()
-    }, [dispatch])
+        if(user){
+            fetchworkuts()
+        }
+        
+    }, [dispatch, user])
 
     // Delete
     const handleDelete = async (_id)=> {
         const response = await fetch(`http://localhost:8000/api/workouts/${_id}`, {
             method: 'DELETE',
+            headers:{
+                'Authorization': `Bearer ${user.token}`
+            }
         })
+        if(!user){
+            return
+        }
         // Have to check again
         const json = await response.json()
 

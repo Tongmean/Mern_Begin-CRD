@@ -14,9 +14,11 @@ export const Navbar = () => {
         <nav className="navbar navbar-success  justify-content-between mx-5 ">
             <div className="navbar-brand">Todo</div>
             <div className='mr-4'>
-                <Link to="/">
-                  <span className='mx-4 home'>Home</span>
-                </Link>
+                {user && (
+                  <Link to="/">
+                    <span className='mx-4 home'>Home</span>
+                  </Link>
+                )}
                 {!user && (
                   <>
                     <Link to="/login">
