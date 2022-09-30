@@ -4,6 +4,7 @@ import { useWorkoutsContext } from '../Hook/useWorkoutContext'
 import './Home.css'
 import AddWorkout from '../conponents/AddWorkout'
 import { useAuthContext } from '../Hook/useAuthContext'
+import {Link } from 'react-router-dom'
 const Home = () => {
     //Local hook
     //const [workouts, setWorkouts] = useState(null)
@@ -63,8 +64,16 @@ const Home = () => {
                                 <p>Create At : {i.createdAt}</p>
                             </div>
                             <div className='Delete-icon pe-3'>
-                                <i className="fa fa-trash" onClick={()=>{handleDelete(i._id)}}></i>
-
+                                <div>
+                                    <i className="fa fa-trash" onClick={()=>{handleDelete(i._id)}}></i>
+                                </div>
+                                
+                                <div>
+                                    <Link to={`/update/${i._id}`}>
+                                        <button className='btn btn-primary me-2'>Update</button>
+                                    </Link>
+                                    
+                                </div>
                             </div>
                             <hr></hr>
                         </div>
