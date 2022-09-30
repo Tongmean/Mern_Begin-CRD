@@ -2,13 +2,16 @@
 const express = require('express');
 // app express
 const app = express();
+require('dotenv').config()
 const port = process.env.PORT||8000;
 //Import Route module
 const workoutRoutes = require('./routes/workouts')
 const userRouter = require('./routes/user')
 // Call mongoose
 const mongoose = require('mongoose')
-require('dotenv').config()
+//Connect to db by call modules
+const dbconnect = require('../Backend/db/dbconnect')
+
 //Call cors
 const cors = require('cors')
 //Middleware
@@ -28,14 +31,6 @@ app.use('/api/user', userRouter)
 //     res.json({"meg":"welcome"})
 // })
 
-//Connect to db
-mongoose.connect(process.env.MONG_URI)
-.then(()=>{
-    console.log('Conect db seccessfully')
-})
-.catch((error)=>{
-    console.log(error)
-})
 
 //listen port
 app.listen(port, (req, res) => {
