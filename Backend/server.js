@@ -27,9 +27,9 @@ app.use(express.json())
 app.use('/api/workouts', workoutRoutes)
 app.use('/api/user', userRouter)
 //route in the same file
-// app.get('/',(req, res)=>{
-//     res.json({"meg":"welcome"})
-// })
+app.get('/',(req, res)=>{
+    res.json({"meg":"welcome"})
+})
 
 
 //listen port
