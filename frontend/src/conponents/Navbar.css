@@ -6,3 +6,11 @@ a {
     text-decoration: none;
     color: aliceblue;
 }
+.logout-icon{
+    text-decoration: none;
+    color: aliceblue;
+}
+.logout-icon:hover{
+    cursor: pointer;
+    color: blue;
+}

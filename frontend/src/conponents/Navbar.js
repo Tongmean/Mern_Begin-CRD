@@ -31,8 +31,8 @@ export const Navbar = () => {
                 )}
                 {user && (
                   <>
-                    <span style={{color:"white"}} onClick={handleClick}>
-                      <a href>logout</a>
+                    <span style={{}} className="logout-icon" onClick={handleClick}>
+                      logout
                     </span>
                     <span className='ms-4'>
                       {user.email}
