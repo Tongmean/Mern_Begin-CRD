@@ -54,7 +54,7 @@ const Home = () => {
             <div className='col-xl-7 col-lg-7 col-md-12 col-sm-12'>
                 <div>
                     {workouts && workouts.map((i,index) =>(
-                        <div key = {i._id} className="item d-flex justify-content-between">
+                        <div key = {index} className="item d-flex justify-content-between">
                 
                             <div>
                                 <span><p>Item_ID : {i._id}</p></span>
