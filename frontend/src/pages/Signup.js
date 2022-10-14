@@ -2,15 +2,15 @@ import React from 'react'
 import { useState } from 'react'
 import { useSignup } from '../Hook/useSignup'
 const Signup = () => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const {error, isloading, signup} = useSignup()
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const {error, isloading, signup} = useSignup();
     const handleClick = async (e) =>{
-        e.preventDefault()
+        e.preventDefault();
 
-        await signup(email, password)
-        setEmail('')
-        setPassword('')
+        await signup(email, password);
+        setEmail('');
+        setPassword('');
     }
   return (
     <div className='h-100 d-flex justify-content-center mt-5'>

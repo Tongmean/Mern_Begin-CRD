@@ -1,9 +1,6 @@
 import { createContext, useReducer } from "react";
-
 // Create new Context
 export const WorkoutsContext = createContext()
-
-
 // Reducer Function condition
 export const worksReducer = (state, action) =>{
     switch (action.type){
@@ -32,7 +29,6 @@ export const worksReducer = (state, action) =>{
             return state
     }
 }
-
 // Function of context Provider
 export const WorkoutsContextProvider = ({ children }) =>{
     //Create userreducer
@@ -40,14 +36,11 @@ export const WorkoutsContextProvider = ({ children }) =>{
         //initial value
         workouts:null
     })
-
     //dispatch({type: 'SET_WORKOUTS', payload: [{},{}]})
-
     return(
-                                        // Invoke Reducer
+        // Invoke Reducer
         <WorkoutsContext.Provider value={{...state, dispatch}}>
             { children }
         </WorkoutsContext.Provider>
     )
-
 }
